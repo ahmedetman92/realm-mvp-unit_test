@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">quiz</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_first_name_text">First Name</string>
+    <string name="tv_last_name_text">First Name</string>
+    <string name="tv_password_text">Password</string>
+    <string name="btn_login_text">Login</string>
+    <string name="user_error_msg">please enter username</string>
+    <string name="test">testing</string>
+    <string name="password_error_msg">please enter password</string>
+    <string name="login_success_msg">Login Success</string>
+    <string name="login_fail_msg">Login failed</string>
+    <string name="empty_fields_error_msg">Please complete the form</string>
+    <string name="btn_register_text">Register</string>
+    <string name="tv_phone_text">Phone</string>
+    <string name="tv_email_text">Email</string>
+    <string name="special_character_msg">Password should have special character</string>
+    <string name="characters_count_error_msg">Characters should be more than 8</string>
+    <string name="phone_error_msg">Please enter Malaysian phone number</string>
+    <string name="registerationSuccess">Registration Succeeded</string>
+    <string name="registerationFailed">Registration failed</string>
+    <string name="user_exists_msg">Email already exists</string>
+</resources>
