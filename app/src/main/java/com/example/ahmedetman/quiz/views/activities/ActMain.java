@@ -119,6 +119,8 @@ public class ActMain extends AppCompatActivity {
                         t.cancel();
                         finish();
                         Intent i = new Intent(context, ActSplash.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK |
+                                Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                     }
                 }, Constants.TIME_OUT); // after 2 second (or 2000 miliseconds), the task will be active.
