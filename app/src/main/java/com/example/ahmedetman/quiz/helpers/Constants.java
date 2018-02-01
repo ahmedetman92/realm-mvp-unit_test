@@ -7,7 +7,7 @@ package com.example.ahmedetman.quiz.helpers;
 public class Constants {
 
     // Splash screen timer
-    public static int SPLASH_TIME_OUT = 5000;
+    public static int TIME_OUT = 5000;
 
     public static enum UserType {
         Broker("Broker", 0),

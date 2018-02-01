@@ -47,9 +47,17 @@
 
     <Button
         android:id="@+id/btn_show_user_type"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_show_user_type_text"
+        android:textAllCaps="false" />
+
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_logout_text"
         android:textAllCaps="false" />
 
 

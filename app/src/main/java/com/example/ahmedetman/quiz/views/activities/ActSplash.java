@@ -33,7 +33,7 @@ public class ActSplash extends AppCompatActivity {
             }
         };
 
-        handler.postDelayed(runnable,Constants.SPLASH_TIME_OUT);
+        handler.postDelayed(runnable,Constants.TIME_OUT);
     }
 
     @Override

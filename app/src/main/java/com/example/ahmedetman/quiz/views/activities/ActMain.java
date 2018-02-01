@@ -1,6 +1,7 @@
 package com.example.ahmedetman.quiz.views.activities;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
@@ -14,8 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ahmedetman.quiz.R;
+import com.example.ahmedetman.quiz.helpers.Constants;
 import com.example.ahmedetman.quiz.helpers.Utils;
 import com.example.ahmedetman.quiz.models.User;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ActMain extends AppCompatActivity {
 
@@ -27,6 +32,7 @@ public class ActMain extends AppCompatActivity {
     private Button btnEditPhone;
     private Button btnSave;
     private Button btnShowUserType;
+    private Button btnLogout;
     private Context context;
     private LinearLayout linearLayout;
 
@@ -52,6 +58,7 @@ public class ActMain extends AppCompatActivity {
         tvMobile = findViewById(R.id.tv_phone);
         btnEditPhone = findViewById(R.id.btn_editphone);
         btnShowUserType = findViewById(R.id.btn_show_user_type);
+        btnLogout = findViewById(R.id.btn_logout);
         linearLayout = findViewById(R.id.linear_layout);
 
 
@@ -95,6 +102,27 @@ public class ActMain extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, user.getUserType(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final ProgressDialog dialog = ProgressDialog.show(context, "", "Please wait...",
+                        true);
+                dialog.show();
+
+                final Timer t = new Timer();
+                t.schedule(new TimerTask() {
+                    public void run() {
+                        dialog.dismiss();
+                        t.cancel();
+                        finish();
+                        Intent i = new Intent(context, ActSplash.class);
+                        startActivity(i);
+                    }
+                }, Constants.TIME_OUT); // after 2 second (or 2000 miliseconds), the task will be active.
+
             }
         });
     }

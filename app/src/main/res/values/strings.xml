@@ -27,4 +27,5 @@
     <string name="edit_dialog_title">Edit Phone</string>
     <string name="btn_show_user_type_text">User Type</string>
     <string name="phone_edited_success">Number edited successfully</string>
+    <string name="btn_logout_text">Logout</string>
 </resources>
