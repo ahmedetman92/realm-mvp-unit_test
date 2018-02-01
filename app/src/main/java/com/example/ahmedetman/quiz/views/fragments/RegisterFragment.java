@@ -1,7 +1,5 @@
 package com.example.ahmedetman.quiz.views.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -17,8 +15,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.ahmedetman.quiz.R;
-import com.example.ahmedetman.quiz.helpers.Constants;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.presenters.RegisterPresenter;
 
 
 public class RegisterFragment extends Fragment implements RegisterView{

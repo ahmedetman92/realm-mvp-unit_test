@@ -1,13 +1,14 @@
-package com.example.ahmedetman.quiz.views.fragments;
+package com.example.ahmedetman.quiz.presenters;
 
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.presenters.RegisterPresenter;
+import com.example.ahmedetman.quiz.views.fragments.RegisterView;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

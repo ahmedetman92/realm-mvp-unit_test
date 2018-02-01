@@ -1,13 +1,14 @@
-package com.example.ahmedetman.quiz.views.fragments;
+package com.example.ahmedetman.quiz.presenters;
 
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.views.fragments.LoginView;
 
 /**
  * Created by Ahmed Etman on 1/30/2018.
  */
 
-class LoginPresenter {
+public class LoginPresenter {
     private LoginView view;
     private User.UserCrud userCrud;
 

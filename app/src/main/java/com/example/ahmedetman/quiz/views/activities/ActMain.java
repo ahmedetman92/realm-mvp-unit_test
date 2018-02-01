@@ -108,7 +108,7 @@ public class ActMain extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final ProgressDialog dialog = ProgressDialog.show(context, "", "Please wait...",
+                final ProgressDialog dialog = ProgressDialog.show(context, "", getString(R.string.please_wait_text),
                         true);
                 dialog.show();
 
@@ -123,7 +123,7 @@ public class ActMain extends AppCompatActivity {
                                 Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                     }
-                }, Constants.TIME_OUT); // after 2 second (or 2000 miliseconds), the task will be active.
+                }, Constants.TIME_OUT);
 
             }
         });

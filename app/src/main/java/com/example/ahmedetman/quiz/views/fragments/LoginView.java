@@ -6,7 +6,7 @@ import com.example.ahmedetman.quiz.models.User;
  * Created by Ahmed Etman on 1/30/2018.
  */
 
-interface LoginView {
+public interface LoginView {
     String getUserEmail();
 
     void showUserNameErrorMsg(int user_error_msg_id);

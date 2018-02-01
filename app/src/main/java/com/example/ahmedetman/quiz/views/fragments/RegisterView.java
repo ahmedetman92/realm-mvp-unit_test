@@ -4,7 +4,7 @@ package com.example.ahmedetman.quiz.views.fragments;
  * Created by Ahmed Etman on 1/31/2018.
  */
 
-interface RegisterView {
+public interface RegisterView {
 
     String getEmail();
     String getPhone();

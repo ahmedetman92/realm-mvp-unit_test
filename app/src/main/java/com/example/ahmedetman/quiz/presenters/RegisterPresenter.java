@@ -1,8 +1,9 @@
-package com.example.ahmedetman.quiz.views.fragments;
+package com.example.ahmedetman.quiz.presenters;
 
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.helpers.Utils;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.views.fragments.RegisterView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,7 +12,7 @@ import java.util.regex.Pattern;
  * Created by Ahmed Etman on 1/31/2018.
  */
 
-class RegisterPresenter {
+public class RegisterPresenter {
 
     private RegisterView view;
     private User.UserCrud userCrud;

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.presenters.LoginPresenter;
 import com.example.ahmedetman.quiz.views.activities.ActMain;
 
 /* create an instance of this fragment.

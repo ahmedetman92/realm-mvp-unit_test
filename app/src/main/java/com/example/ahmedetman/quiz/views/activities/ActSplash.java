@@ -1,6 +1,5 @@
 package com.example.ahmedetman.quiz.views.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +7,11 @@ import android.os.Bundle;
 
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.helpers.Constants;
+import com.example.ahmedetman.quiz.presenters.SplashPresenter;
 
-public class ActSplash extends AppCompatActivity {
+public class ActSplash extends AppCompatActivity implements SplashView{
 
+    private SplashPresenter splashPresenter;
     private Handler handler;
     private Runnable runnable;
 
@@ -19,17 +20,17 @@ public class ActSplash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_splash);
 
+        splashPresenter = new SplashPresenter(this);
+
+        openHome();
+    }
+
+    private void openHome() {
         handler = new Handler();
         runnable = new Runnable() {
             @Override
             public void run() {
-                // This method will be executed once the timer is over
-                // Start your app main activity
-                Intent i = new Intent(ActSplash.this, ActHome.class);
-                startActivity(i);
-
-                // close this activity
-                finish();
+                splashPresenter.openHome();
             }
         };
 
@@ -42,7 +43,11 @@ public class ActSplash extends AppCompatActivity {
         super.onDestroy();
     }
 
-    private Intent loginIntent(Context context){
-       return new Intent(context, ActHome.class);
+    @Override
+    public void openHomeActivity() {
+        Intent i = new Intent(ActSplash.this, ActHome.class);
+        startActivity(i);
+
+        finish();
     }
 }
