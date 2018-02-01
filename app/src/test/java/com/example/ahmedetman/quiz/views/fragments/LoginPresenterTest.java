@@ -34,7 +34,7 @@ public class LoginPresenterTest {
 
     @Test
     public void showEmptyFieldsErrorMessage(){
-        when(view.getUsername()).thenReturn("");
+        when(view.getUserEmail()).thenReturn("");
         when(view.getPassword()).thenReturn("");
 
         presenter.onLoginClickedMethod();
@@ -43,7 +43,7 @@ public class LoginPresenterTest {
 
    @Test
    public void showUsernameErrorMessage(){
-        when(view.getUsername()).thenReturn("");
+        when(view.getUserEmail()).thenReturn("");
         presenter.onLoginClickedMethod();
 
         verify(view).showUserNameErrorMsg(R.string.user_error_msg);
@@ -51,7 +51,7 @@ public class LoginPresenterTest {
 
    @Test
    public void showPasswordErrorMessage(){
-        when(view.getUsername()).thenReturn("Ahmed");
+        when(view.getUserEmail()).thenReturn("Ahmed");
         when(view.getPassword()).thenReturn("");
 
         presenter.onLoginClickedMethod();
@@ -61,17 +61,17 @@ public class LoginPresenterTest {
 
     @Test
     public void performLoginSuccess() throws Exception {
-        when(view.getUsername()).thenReturn("Ahmed");
+        when(view.getUserEmail()).thenReturn("Ahmed");
         when(view.getPassword()).thenReturn("Etman");
         when(userCrud.tryToLogin("Ahmed","Etman")).thenReturn(true);
         presenter.onLoginClickedMethod();
 
-        verify(view).showLoginSuccess(R.string.login_success_msg);
+        verify(view).performLoginSuccessAction(R.string.login_success_msg);
     }
 
     @Test
     public void performLoginFail() throws Exception {
-        when(view.getUsername()).thenReturn("Ahmed");
+        when(view.getUserEmail()).thenReturn("Ahmed");
         when(view.getPassword()).thenReturn("Etman");
         when(userCrud.tryToLogin("Ahmed","Etman")).thenReturn(false);
         presenter.onLoginClickedMethod();

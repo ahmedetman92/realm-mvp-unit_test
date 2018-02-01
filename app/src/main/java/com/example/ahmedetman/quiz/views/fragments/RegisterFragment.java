@@ -3,6 +3,7 @@ package com.example.ahmedetman.quiz.views.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -31,6 +33,7 @@ public class RegisterFragment extends Fragment implements RegisterView{
     private EditText etPassword;
     private EditText etPhone;
     private String userType;
+    private LinearLayout linearLayout;
 
     public RegisterFragment() {
         // Required empty public constructor
@@ -57,6 +60,7 @@ public class RegisterFragment extends Fragment implements RegisterView{
     }
 
     private void initViews(View view) {
+        linearLayout = view.findViewById(R.id.register_layout);
         spinner = view.findViewById(R.id.spinner_user_types);
         btnRegister = view.findViewById(R.id.btn_register);
         etFirstName = view.findViewById(R.id.et_first_name);
@@ -119,8 +123,8 @@ public class RegisterFragment extends Fragment implements RegisterView{
     }
 
     @Override
-    public void validateEmptyFields(int login_success_msg) {
-        Toast.makeText(getActivity(), getString(login_success_msg), Toast.LENGTH_SHORT).show();
+    public void validateEmptyFields(int empty_fields_error) {
+        Snackbar.make(linearLayout,getString(empty_fields_error),Snackbar.LENGTH_LONG).show();
     }
 
     @Override

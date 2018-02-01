@@ -1,11 +1,13 @@
 package com.example.ahmedetman.quiz.views.fragments;
 
+import com.example.ahmedetman.quiz.models.User;
+
 /**
  * Created by Ahmed Etman on 1/30/2018.
  */
 
 interface LoginView {
-    String getUsername();
+    String getUserEmail();
 
     void showUserNameErrorMsg(int user_error_msg_id);
 
@@ -13,7 +15,7 @@ interface LoginView {
 
     void showPasswordErrorMsg(int password_error_msg_id);
 
-    void showLoginSuccess(int login_success_msg);
+    void performLoginSuccessAction(String userEmail);
 
     void showLoginError(int login_fail_msg);
 

@@ -1,6 +1,7 @@
 package com.example.ahmedetman.quiz.views.fragments;
 
 import com.example.ahmedetman.quiz.R;
+import com.example.ahmedetman.quiz.helpers.Utils;
 import com.example.ahmedetman.quiz.models.User;
 
 import java.util.regex.Matcher;
@@ -62,7 +63,7 @@ class RegisterPresenter {
             view.showPasswordCharactersCountErorMsg(R.string.characters_count_error_msg);
             return false;
         }
-        if(!validateMalaysianPhone(phone)){
+        if(!Utils.validateMalaysianPhone(phone)){
             view.showPhoneErrorMsg(R.string.phone_error_msg);
             return false;
         }
@@ -88,18 +89,8 @@ class RegisterPresenter {
        return false;
     }
 
-    private boolean validateMalaysianPhone(String phone){
-        if(phone.length() > 10) {
-            String firstCharacters = phone.substring(0, 3);
-            if (firstCharacters.contains("+60") || firstCharacters.contains("0060")) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     private boolean validateEmailExistence(String email){
         return userCrud.isUserExists(email);
     }
-
 }

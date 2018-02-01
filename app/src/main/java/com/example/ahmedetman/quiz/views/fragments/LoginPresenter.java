@@ -17,13 +17,13 @@ class LoginPresenter {
     }
 
     public void onLoginClickedMethod() {
-        String userName = view.getUsername();
+        String userEmail = view.getUserEmail();
         String password = view.getPassword();
 
-        if(userName.isEmpty() && password.isEmpty()){
+        if(userEmail.isEmpty() && password.isEmpty()){
             view.showEmptyFieldsErrorMessage(R.string.empty_fields_error_msg);
         }
-        if(userName.isEmpty()){
+        if(userEmail.isEmpty()){
             view.showUserNameErrorMsg(R.string.user_error_msg);
             return;
         }
@@ -31,9 +31,9 @@ class LoginPresenter {
             view.showPasswordErrorMsg(R.string.password_error_msg);
             return;
         }
-        boolean login = userCrud.tryToLogin(userName,password);
+        boolean login = userCrud.tryToLogin(userEmail,password);
         if(login){
-            view.showLoginSuccess(R.string.login_success_msg);
+            view.performLoginSuccessAction(userEmail);
             return;
         }
         view.showLoginError(R.string.login_fail_msg);

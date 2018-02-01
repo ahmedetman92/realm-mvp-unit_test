@@ -16,7 +16,7 @@ public class RealmHelper {
     private static RealmHelper instance = null;
     private Realm realm;
 
-    protected RealmHelper() {
+    private RealmHelper() {
         // Exists only to defeat instantiation.
     }
 
@@ -29,15 +29,21 @@ public class RealmHelper {
 
     public Realm initRealm() {
         Realm.init(QuizApp.getApplication());
-        RealmConfiguration config2 = new RealmConfiguration.Builder()
+
+        realm = Realm.getInstance(getRealmConfig());
+
+        realm.beginTransaction();
+
+        return realm;
+    }
+
+
+    private RealmConfiguration getRealmConfig() {
+        RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("default2")
                 .schemaVersion(2)
                 .deleteRealmIfMigrationNeeded()
                 .build();
-
-        realm = Realm.getInstance(config2);
-        realm.beginTransaction();
-
-        return realm;
+        return config;
     }
 }

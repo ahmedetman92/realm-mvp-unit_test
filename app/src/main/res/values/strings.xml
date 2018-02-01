@@ -22,4 +22,9 @@
     <string name="registerationSuccess">Registration Succeeded</string>
     <string name="registerationFailed">Registration failed</string>
     <string name="user_exists_msg">Email already exists</string>
+    <string name="btn_edit_text">Edit phone</string>
+    <string name="btn_save_text">Save</string>
+    <string name="edit_dialog_title">Edit Phone</string>
+    <string name="btn_show_user_type_text">User Type</string>
+    <string name="phone_edited_success">Number edited successfully</string>
 </resources>
