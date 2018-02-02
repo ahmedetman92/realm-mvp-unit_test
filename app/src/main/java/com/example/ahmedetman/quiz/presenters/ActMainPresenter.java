@@ -28,5 +28,4 @@ public class ActMainPresenter {
     public void onLogoutClicked(){
         view.logout();
     }
-
 }

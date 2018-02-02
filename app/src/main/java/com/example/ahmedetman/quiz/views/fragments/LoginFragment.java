@@ -28,7 +28,6 @@ public class LoginFragment extends Fragment implements LoginView{
     private LinearLayout linearLayout;
 
     public LoginFragment() {
-        // Required empty public constructor
     }
 
     @Override
