@@ -2,6 +2,7 @@ package com.example.ahmedetman.quiz.presenters;
 
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.models.UserCrud;
 import com.example.ahmedetman.quiz.presenters.LoginPresenter;
 import com.example.ahmedetman.quiz.views.fragments.LoginView;
 
@@ -25,7 +26,7 @@ public class LoginPresenterTest {
     @Mock
     LoginView view;
     @Mock
-    User.UserCrud userCrud;
+    UserCrud userCrud;
 
 
     @Before

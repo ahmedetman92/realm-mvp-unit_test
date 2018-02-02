@@ -30,7 +30,7 @@ public class ActHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_home);
 
-        toolbar = (Toolbar) findViewById(R.id.homeToolbar);
+        toolbar = findViewById(R.id.homeToolbar);
         setSupportActionBar(toolbar);
 
         viewPager = (ViewPager) findViewById(R.id.homeViewpager);
@@ -39,17 +39,6 @@ public class ActHome extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.homeTabs);
         tabLayout.setupWithViewPager(viewPager);
 
-
-        /*User  user = new User();
-        user.setLastName("etman");
-        user.setFirstName("ahmed");
-        user.setMobileNumber("010170");
-        user.setPassword("passwrod");
-        user.setUserType(Constants.UserType.Private.toString());
-
-        //User.UserCrud.createUser(user);
-
-        User.UserCrud.retrieveAllUsers();*/
     }
 
     private void setupViewPager(ViewPager viewPager) {

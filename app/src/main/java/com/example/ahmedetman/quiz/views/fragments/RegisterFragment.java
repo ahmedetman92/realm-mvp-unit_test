@@ -15,7 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.ahmedetman.quiz.R;
-import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.models.UserCrud;
 import com.example.ahmedetman.quiz.presenters.RegisterPresenter;
 
 
@@ -47,7 +47,7 @@ public class RegisterFragment extends Fragment implements RegisterView{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        registerPresenter = new RegisterPresenter(this, new User.UserCrud());
+        registerPresenter = new RegisterPresenter(this, new UserCrud());
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_register, container, false);
@@ -65,7 +65,7 @@ public class RegisterFragment extends Fragment implements RegisterView{
         etLastName = view.findViewById(R.id.et_last_name);
         etPassword = view.findViewById(R.id.et_password);
         etPhone = view.findViewById(R.id.et_phone);
-        etEmail = view.findViewById(R.id.et_email);
+        etEmail = view.findViewById(R.id.et_register_email);
         btnRegister = view.findViewById(R.id.btn_register);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,12 +75,12 @@ public class RegisterFragment extends Fragment implements RegisterView{
         });
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item,
-                User.UserCrud.provideUserTypes());
+                UserCrud.provideUserTypes());
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                userType = User.UserCrud.provideUserTypes()[i];
+                userType = UserCrud.provideUserTypes()[i];
             }
 
             @Override

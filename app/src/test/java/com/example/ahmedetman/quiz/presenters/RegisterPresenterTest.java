@@ -2,6 +2,7 @@ package com.example.ahmedetman.quiz.presenters;
 
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.models.UserCrud;
 import com.example.ahmedetman.quiz.presenters.RegisterPresenter;
 import com.example.ahmedetman.quiz.views.fragments.RegisterView;
 
@@ -22,7 +23,7 @@ public class RegisterPresenterTest {
     @Mock
     private RegisterView view;
     @Mock
-    private User.UserCrud userCrud;
+    private UserCrud userCrud;
 
     @Before
     public void setUp() throws Exception {

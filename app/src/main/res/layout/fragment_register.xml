@@ -35,7 +35,7 @@
         android:text="@string/tv_email_text" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/et_register_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

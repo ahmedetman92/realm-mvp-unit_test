@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.ahmedetman.quiz.R;
-import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.models.UserCrud;
 import com.example.ahmedetman.quiz.presenters.LoginPresenter;
 import com.example.ahmedetman.quiz.views.activities.ActMain;
 
@@ -39,7 +39,7 @@ public class LoginFragment extends Fragment implements LoginView{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        loginPresenter = new LoginPresenter(this, new User.UserCrud());
+        loginPresenter = new LoginPresenter(this, new UserCrud());
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
         initViews(view);
@@ -51,8 +51,8 @@ public class LoginFragment extends Fragment implements LoginView{
     private void initViews(View view) {
         linearLayout = view.findViewById(R.id.login_linearLayout);
         btnLogin = view.findViewById(R.id.btn_login);
-        etPassword = view.findViewById(R.id.et_password);
-        etEmail = view.findViewById(R.id.et_email);
+        etPassword = view.findViewById(R.id.et_login_password);
+        etEmail = view.findViewById(R.id.et_login_email);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

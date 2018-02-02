@@ -18,13 +18,14 @@ import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.helpers.Constants;
 import com.example.ahmedetman.quiz.helpers.Utils;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.models.UserCrud;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class ActMain extends AppCompatActivity {
 
-    private User.UserCrud userCrud;
+    private UserCrud userCrud;
     private TextView tvFirstName;
     private TextView tvLastName;
     private TextView tvMobile;
@@ -45,7 +46,7 @@ public class ActMain extends AppCompatActivity {
 
         Intent i = getIntent();
         String userEmail = i.getStringExtra("userEmail");
-        userCrud =  new User.UserCrud();
+        userCrud =  new UserCrud();
         User  user = userCrud.retrieveSingleUser(userEmail);
 
         initViews(user);

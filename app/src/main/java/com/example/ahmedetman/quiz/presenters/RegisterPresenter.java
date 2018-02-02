@@ -3,6 +3,7 @@ package com.example.ahmedetman.quiz.presenters;
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.helpers.Utils;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.models.UserCrud;
 import com.example.ahmedetman.quiz.views.fragments.RegisterView;
 
 import java.util.regex.Matcher;
@@ -15,9 +16,9 @@ import java.util.regex.Pattern;
 public class RegisterPresenter {
 
     private RegisterView view;
-    private User.UserCrud userCrud;
+    private UserCrud userCrud;
 
-    public RegisterPresenter(RegisterView view, User.UserCrud userCrud) {
+    public RegisterPresenter(RegisterView view, UserCrud userCrud) {
         this.userCrud = userCrud;
         this.view = view;
     }

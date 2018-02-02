@@ -2,6 +2,7 @@ package com.example.ahmedetman.quiz.presenters;
 
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.models.User;
+import com.example.ahmedetman.quiz.models.UserCrud;
 import com.example.ahmedetman.quiz.views.fragments.LoginView;
 
 /**
@@ -10,9 +11,9 @@ import com.example.ahmedetman.quiz.views.fragments.LoginView;
 
 public class LoginPresenter {
     private LoginView view;
-    private User.UserCrud userCrud;
+    private UserCrud userCrud;
 
-    public LoginPresenter(LoginView view, User.UserCrud userCrud) {
+    public LoginPresenter(LoginView view, UserCrud userCrud) {
         this.view = view;
         this.userCrud = userCrud;
     }

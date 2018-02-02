@@ -15,7 +15,7 @@
         android:text="@string/tv_email_text" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/et_login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_10dp" />
@@ -29,7 +29,7 @@
 
     <EditText
         android:inputType="textPassword"
-        android:id="@+id/et_password"
+        android:id="@+id/et_login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_10dp" />
