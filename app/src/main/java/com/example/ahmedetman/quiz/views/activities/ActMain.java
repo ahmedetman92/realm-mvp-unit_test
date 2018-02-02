@@ -19,11 +19,15 @@ import com.example.ahmedetman.quiz.helpers.Constants;
 import com.example.ahmedetman.quiz.helpers.Utils;
 import com.example.ahmedetman.quiz.models.User;
 import com.example.ahmedetman.quiz.models.UserCrud;
+import com.example.ahmedetman.quiz.presenters.ActMainPresenter;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ActMain extends AppCompatActivity {
+public class ActMain extends AppCompatActivity implements ActMainView {
+
+
+    private ActMainPresenter actMainPresenter;
 
     private UserCrud userCrud;
     private TextView tvFirstName;
@@ -36,20 +40,23 @@ public class ActMain extends AppCompatActivity {
     private Button btnLogout;
     private Context context;
     private LinearLayout linearLayout;
+    private User mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_main);
 
+        actMainPresenter = new ActMainPresenter(this);
+
         context = this;
 
         Intent i = getIntent();
         String userEmail = i.getStringExtra("userEmail");
-        userCrud =  new UserCrud();
-        User  user = userCrud.retrieveSingleUser(userEmail);
+        userCrud = new UserCrud();
+        mUser = userCrud.retrieveSingleUser(userEmail);
 
-        initViews(user);
+        initViews(mUser);
     }
 
     private void initViews(final User user) {
@@ -71,62 +78,76 @@ public class ActMain extends AppCompatActivity {
         btnEditPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                // custom dialog
-                final Dialog dialog = new Dialog(context);
-                dialog.setContentView(R.layout.custom_dialog);
-                dialog.setTitle(getString(R.string.edit_dialog_title));
-
-                etPhoneNumber = dialog.findViewById(R.id.et_phone);
-                btnSave =  dialog.findViewById(R.id.btn_save);
-                // if button is clicked, close the custom dialog
-                btnSave.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String newPhone =  etPhoneNumber.getText().toString();
-
-                        if(Utils.validateMalaysianPhone(newPhone)) {
-                            userCrud.updateUser(user, newPhone );
-                            dialog.dismiss();
-                            Snackbar.make(linearLayout,getString(R.string.phone_edited_success),Snackbar.LENGTH_LONG).show();
-
-                        }else{
-                            Toast.makeText(context, getString(R.string.phone_error_msg), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-                dialog.show();
+                actMainPresenter.onEditPhoneClicked();
             }
         });
 
         btnShowUserType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, user.getUserType(), Toast.LENGTH_SHORT).show();
+                actMainPresenter.onShowUserTypeClicked();
             }
         });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final ProgressDialog dialog = ProgressDialog.show(context, "", getString(R.string.please_wait_text),
-                        true);
-                dialog.show();
-
-                final Timer t = new Timer();
-                t.schedule(new TimerTask() {
-                    public void run() {
-                        dialog.dismiss();
-                        t.cancel();
-                        finish();
-                        Intent i = new Intent(context, ActSplash.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK |
-                                Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(i);
-                    }
-                }, Constants.TIME_OUT);
-
+                actMainPresenter.onLogoutClicked();
             }
         });
     }
+
+    @Override
+    public void editPhone() {
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.custom_dialog);
+        dialog.setTitle(getString(R.string.edit_dialog_title));
+
+        etPhoneNumber = dialog.findViewById(R.id.et_phone);
+        btnSave =  dialog.findViewById(R.id.btn_save);
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newPhone =  etPhoneNumber.getText().toString();
+
+                if(Utils.validateMalaysianPhone(newPhone)) {
+                    userCrud.updateUser(mUser, newPhone );
+                    dialog.dismiss();
+                    Snackbar.make(linearLayout,getString(R.string.phone_edited_success),Snackbar.LENGTH_LONG).show();
+
+                }else{
+                    Toast.makeText(context, getString(R.string.phone_error_msg), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        dialog.show();
+    }
+
+    @Override
+    public void showUserType() {
+        Toast.makeText(context, mUser.getUserType(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void logout() {
+        final ProgressDialog dialog = ProgressDialog.show(context, "", getString(R.string.please_wait_text),
+                true);
+        dialog.show();
+
+        final Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            public void run() {
+                dialog.dismiss();
+                t.cancel();
+                finish();
+                Intent i = new Intent(context, ActSplash.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK |
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        }, Constants.TIME_OUT);
+
+    }
+
 }
