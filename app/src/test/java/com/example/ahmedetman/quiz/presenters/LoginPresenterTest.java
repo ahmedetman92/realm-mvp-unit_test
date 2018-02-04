@@ -44,14 +44,6 @@ public class LoginPresenterTest {
         verify(view).showEmptyFieldsErrorMessage(R.string.empty_fields_error_msg);
     }
 
-//   @Test
-//   public void showUsernameErrorMessage(){
-//        when(view.getUserEmail()).thenReturn("");
-//        presenter.onLoginClickedMethod();
-//
-//        verify(view).showUserNameErrorMsg(R.string.user_error_msg);
-   // }
-
    @Test
    public void showPasswordErrorMessage(){
         when(view.getUserEmail()).thenReturn("Ahmed");
@@ -61,16 +53,6 @@ public class LoginPresenterTest {
 
         verify(view).showPasswordErrorMsg(R.string.password_error_msg);
     }
-
-//    @Test
-//    public void performLoginSuccess() throws Exception {
-//        when(view.getUserEmail()).thenReturn("Ahmed");
-//        when(view.getPassword()).thenReturn("Etman");
-//        when(userCrud.tryToLogin("Ahmed","Etman")).thenReturn(true);
-//        presenter.onLoginClickedMethod();
-//
-//        verify(view).performLoginSuccessAction("email");
-//    }
 
     @Test
     public void performLoginFail() throws Exception {

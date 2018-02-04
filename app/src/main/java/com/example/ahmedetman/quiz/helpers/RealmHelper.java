@@ -17,7 +17,6 @@ public class RealmHelper {
     private Realm realm;
 
     private RealmHelper() {
-        // Exists only to defeat instantiation.
     }
 
     public static RealmHelper getInstance() {

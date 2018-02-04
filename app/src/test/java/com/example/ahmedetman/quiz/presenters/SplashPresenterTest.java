@@ -42,15 +42,6 @@ public class SplashPresenterTest {
     public void openHome() throws Exception {
         splashPresenter.openHome();
         verify(splashView,times(1)).openHomeActivity();
-//        splashPresenter.openHome(Constants.TIME_OUT);
-//    when(handler.postDelayed(any(Runnable.class),anyLong())).thenAnswer(new Answer() {
-//        @Override
-//        public Object answer(InvocationOnMock invocation) throws Throwable {
-//            invocation.getArgumentAt(0, Runnable.class).run();
-//            return null;
-//        }
-//    });
-      // verify(splashView,times(1)).openHomeActivity(handler,runnable);
     }
 
 }

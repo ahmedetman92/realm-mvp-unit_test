@@ -26,7 +26,7 @@ public class LoginPresenter {
             view.showEmptyFieldsErrorMessage(R.string.empty_fields_error_msg);
         }
         if(userEmail.isEmpty()){
-            view.showUserNameErrorMsg(R.string.user_error_msg);
+            view.showUserNameErrorMsg(R.string.invalid_email_msg);
             return;
         }
         if(password.isEmpty()){

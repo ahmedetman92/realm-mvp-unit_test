@@ -1,5 +1,7 @@
 package com.example.ahmedetman.quiz.models;
 
+import android.util.Log;
+
 import com.example.ahmedetman.quiz.QuizApp;
 import com.example.ahmedetman.quiz.R;
 import com.example.ahmedetman.quiz.helpers.RealmHelper;
@@ -31,6 +33,7 @@ public class UserCrud {
             realm.close();
             return true;
         }catch (Exception  ex){
+            Log.e(String.valueOf(UserCrud.class),ex.getMessage());
             return false;
         }
     }
@@ -94,6 +97,7 @@ public class UserCrud {
             return true;
         }
         catch (Exception ex){
+            Log.e(String.valueOf(UserCrud.class),ex.getMessage());
             return false;
         }
     }

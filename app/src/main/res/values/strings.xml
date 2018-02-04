@@ -5,7 +5,7 @@
     <string name="tv_last_name_text">Last Name</string>
     <string name="tv_password_text">Password</string>
     <string name="btn_login_text">Login</string>
-    <string name="user_error_msg">please enter username</string>
+    <string name="invalid_email_msg">Email is not valid</string>
     <string name="test">testing</string>
     <string name="password_error_msg">please enter password</string>
     <string name="login_success_msg">Login Success</string>
